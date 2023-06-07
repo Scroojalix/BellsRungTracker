@@ -1,0 +1,41 @@
+name: BellsRungTracker
+main: io.github.scroojalix.belltracker.Main
+version: 1.0
+api-version: 1.13
+author: Scroojalix
+description: Adds Bells Rung Scoreboard, plus some additional fun commands.
+permission-message: &noperms "\u00A7cYou do not have permission to use this command."
+
+commands:
+  getscore:
+    description: Gets a players "Bells Rung" score
+    usage: "\u00A7cUsage: /getscore <player>"
+    permission: belltracker.getscore
+    permission-message: *noperms
+  setscore:
+    description: Sets the "Bells Rung" score for a player
+    usage: "\u00A7cUsage: /setscore <player> <newscore>"
+    permission: belltracker.setscore
+    permission-message: *noperms
+  clearallscores:
+    description: Resets all "Bells Rung" scores
+    usage: "\u00A7cAre you sure? Type \u00A7e/clearallscores confirm"
+    permission: belltracker.clearallscores
+    permission-message: *noperms
+
+permissions:
+  belltracker.*:
+    default: op
+    children:
+      - belltracker.getscore
+      - belltracker.setscore
+      - belltracker.clearallscores
+  belltracker.getscore:
+    default: false
+    description: Allows the use of the /getscore command
+  belltracker.setscore:
+    default: false
+    description: Allows the use of the /setscore command
+  belltracker.clearallscores:
+    default: false
+    description: Allows the use of the /clearallscores command
